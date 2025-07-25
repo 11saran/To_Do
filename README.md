@@ -12,24 +12,34 @@ This is a full-stack TO-DO application built with:
 ## Project Structure
 
 TO-DO/
-├── client/ # React Frontend
-│ ├── public/
-│ ├── src/
-│ ├── Dockerfile
-│ ├── index.html
-│ └── vite.config.js
+├── client/                 # React Frontend
+│   ├── node_modules/
+│   ├── public/
+│   ├── src/
+│   ├── Dockerfile
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── vite.config.js
+│   └── README.md
 │
-├── server/ # Node.js Backend
-│ ├── config/
-│ ├── controllers/
-│ ├── models/
-│ ├── routes/
-│ ├── .env
-│ ├── Dockerfile
-│ └── server.js
+├── server/                 # Node.js Backend
+│   ├── config/
+│   │   └── db.js
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── node_modules/
+│   ├── .env
+│   ├── .gitignore
+│   ├── Dockerfile
+│   ├── package.json
+│   ├── package-lock.json
+│   └── server.js
 │
-├── docker-compose.yml # Docker Compose file
-└── README.md
+├── docker-compose.yml      # Docker Compose file
+└── README.md               # This README file
 
 ---
 
