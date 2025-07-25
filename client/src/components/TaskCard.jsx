@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Check, Edit3, Trash2, X, Save } from "lucide-react";
+import toast from "react-hot-toast";
 
 export const TaskCard = ({ task, onComplete, onUpdate, onDelete }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -35,6 +36,7 @@ export const TaskCard = ({ task, onComplete, onUpdate, onDelete }) => {
         editData.title.trim(),
         editData.description.trim()
       );
+      toast.success("Task Updated successfully");
       setIsEditing(false);
       // Update local updatedAt state immediately
       setUpdatedAt(updatedTask.updated_at);
@@ -57,6 +59,7 @@ export const TaskCard = ({ task, onComplete, onUpdate, onDelete }) => {
     setIsLoading(true);
     try {
       await onComplete(task.id);
+      toast.success("Task Completed");
     } catch (error) {
       console.error("Failed to complete task:", error);
     } finally {
@@ -67,6 +70,7 @@ export const TaskCard = ({ task, onComplete, onUpdate, onDelete }) => {
   const handleDelete = async () => {
     if (window.confirm("Are you sure you want to delete this task?")) {
       setIsLoading(true);
+      toast.success("Task Deleted successfully");
       try {
         await onDelete(task.id);
       } catch (error) {

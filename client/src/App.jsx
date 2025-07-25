@@ -4,6 +4,7 @@ import { CheckSquare } from "lucide-react";
 // import { ThemeToggle } from "./components/ThemeToggle";
 import { AddTaskForm } from "./components/AddTaskForm";
 import { TaskList } from "./components/TaskList";
+import { Toaster } from "react-hot-toast";
 
 function AppContent() {
   const [taskListKey, setTaskListKey] = useState(0);
@@ -64,6 +65,7 @@ function AppContent() {
 function App() {
   return (
     <>
+      <Toaster position="top-right" reverseOrder={false} />
       <AppContent />
     </>
   );

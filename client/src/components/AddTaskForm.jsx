@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Plus } from "lucide-react";
 import { apiService } from "../services/api";
+import toast from "react-hot-toast";
 
 export const AddTaskForm = ({ onTaskAdded }) => {
   const [formData, setFormData] = useState({
@@ -33,6 +34,7 @@ export const AddTaskForm = ({ onTaskAdded }) => {
     try {
       await apiService.createTask(formData);
       setFormData({ title: "", description: "" });
+       toast.success("Task added successfully");
       onTaskAdded();
     } catch (error) {
       setError(
