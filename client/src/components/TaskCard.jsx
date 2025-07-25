@@ -9,10 +9,9 @@ export const TaskCard = ({ task, onComplete, onUpdate, onDelete }) => {
     description: task.description,
   });
   const [isLoading, setIsLoading] = useState(false);
-  // NEW: local updatedAt state for immediate UI update after save
   const [updatedAt, setUpdatedAt] = useState(task.updated_at);
 
-  // Also update editData and updatedAt if task prop changes (in case parent refreshes)
+ 
   useEffect(() => {
     setEditData({ title: task.title, description: task.description });
     setUpdatedAt(task.updated_at);
@@ -38,7 +37,6 @@ export const TaskCard = ({ task, onComplete, onUpdate, onDelete }) => {
       );
       toast.success("Task Updated successfully");
       setIsEditing(false);
-      // Update local updatedAt state immediately
       setUpdatedAt(updatedTask.updated_at);
     } catch (error) {
       console.error("Failed to update task:", error);
@@ -94,6 +92,7 @@ export const TaskCard = ({ task, onComplete, onUpdate, onDelete }) => {
     <div className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] backdrop-blur-sm relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-indigo-50/30 dark:from-gray-800/30 dark:to-gray-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       <div className="relative z-10">
+        {/* Editing section */}
         {isEditing ? (
           <div className="space-y-3">
             <input
@@ -117,6 +116,8 @@ export const TaskCard = ({ task, onComplete, onUpdate, onDelete }) => {
               className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 resize-none transition-all duration-300"
               placeholder="Task description..."
             />
+
+            {/* Save Button */}
             <div className="flex gap-2">
               <button
                 onClick={handleSave}
@@ -126,6 +127,8 @@ export const TaskCard = ({ task, onComplete, onUpdate, onDelete }) => {
                 <Save className="w-4 h-4" />
                 Save
               </button>
+
+              {/* Cancel Button */}
               <button
                 onClick={handleCancel}
                 disabled={isLoading}
@@ -157,6 +160,8 @@ export const TaskCard = ({ task, onComplete, onUpdate, onDelete }) => {
               </div>
             </div>
 
+            {/* Done Button */}
+
             <div className="flex gap-3">
               <button
                 onClick={handleComplete}
@@ -167,6 +172,8 @@ export const TaskCard = ({ task, onComplete, onUpdate, onDelete }) => {
                 Done
               </button>
 
+              {/* Edit Button */}
+
               <button
                 onClick={handleEdit}
                 disabled={isLoading}
@@ -175,7 +182,7 @@ export const TaskCard = ({ task, onComplete, onUpdate, onDelete }) => {
                 <Edit3 className="w-4 h-4" />
                 Edit
               </button>
-
+              {/* Delete Button */}
               <button
                 onClick={handleDelete}
                 disabled={isLoading}
