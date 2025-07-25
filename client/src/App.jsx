@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { CheckSquare } from "lucide-react";
-// import { ThemeProvider } from "./contexts/ThemeContext";
-// import { ThemeToggle } from "./components/ThemeToggle";
 import { AddTaskForm } from "./components/AddTaskForm";
 import { TaskList } from "./components/TaskList";
 import { Toaster } from "react-hot-toast";
@@ -54,7 +52,7 @@ function AppContent() {
       <footer className="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border-t border-gray-200/50 dark:border-gray-700/50 mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <p className="text-center text-gray-600 dark:text-gray-400 text-sm font-medium">
-            Built with React, Express.js, and Supabase
+            © {new Date().getFullYear()} Todo Task Manager. All rights reserved.
           </p>
         </div>
       </footer>
