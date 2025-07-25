@@ -58,7 +58,7 @@ export const TaskList = () => {
                 ...task,
                 title,
                 description,
-                updated_at: updatedTask.updated_at, // Ensure this is included
+                updated_at: updatedTask.updated_at, 
               }
             : task
         )
