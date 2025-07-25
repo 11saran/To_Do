@@ -33,6 +33,23 @@ DB_PASSWORD=your_mysql_password
 DB_NAME=todo
 PORT=3000
 
+### Database Setup
+
+Create a MySQL database (e.g., `todo`) either via MySQL Workbench or command line:
+
+```sql
+CREATE DATABASE todo;
+USE todo;
+
+CREATE TABLE tasks (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  description TEXT DEFAULT '',
+  is_completed BOOLEAN DEFAULT FALSE,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 ### Docker Instructions
 
 Build and Start All Containers
@@ -63,5 +80,5 @@ MySQL: Accessible via localhost:3307 (with tools like MySQL Workbench)
 ✅ Author
 Developed by Saran
 
-MERN Stack Developer | UoM
-```
+
+
