@@ -34,7 +34,7 @@ export const AddTaskForm = ({ onTaskAdded }) => {
     try {
       await apiService.createTask(formData);
       setFormData({ title: "", description: "" });
-       toast.success("Task added successfully");
+      toast.success("Task added successfully");
       onTaskAdded();
     } catch (error) {
       setError(
@@ -61,7 +61,7 @@ export const AddTaskForm = ({ onTaskAdded }) => {
             htmlFor="title"
             className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
           >
-            Title 
+            Title
           </label>
           <input
             type="text"

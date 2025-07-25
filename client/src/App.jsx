@@ -28,7 +28,6 @@ function AppContent() {
                 Todo Task Manager
               </h1>
             </div>
-            {/* <ThemeToggle /> */}
           </div>
         </div>
       </header>
